@@ -7,7 +7,7 @@ init()
 
 def check_password_strength(password):
     if len(password) < 14:
-        return  Fore.RED + "Weak: Password must be at least 8 characters long." + Style.RESET_ALL
+        return  Fore.RED + "Weak: Password must be at least 14 characters long." + Style.RESET_ALL
     if not re.search(r"[A-Z]",password):
         return Fore.RED + "Weak: Password must contain at least one uppercase letter." + Style.RESET_ALL
     if not re.search(r"[a-z]",password):
@@ -20,7 +20,13 @@ def check_password_strength(password):
         return Fore.RED +  "Weak: Password must not contain any whitespace." + Style.RESET_ALL
     return Fore.GREEN + "Strong: Password is strong." + Style.RESET_ALL
 
-
+def suggest_password(password):
+    suggestions = []
+    if len(password) < 14:
+        return "Would you like a password suggestion? (y/n):"
+    else:
+        return "Input password is strong enough, no suggestions needed."
+    
 
 
 
